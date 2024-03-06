@@ -2,3 +2,7 @@
 	path = submodule1
 	url = https://github.com/CurcioDitavia/submodule1
 	branch = main
+[submodule "another-submodule"]
+	path = another-submodule
+	url = https://github.com/CurcioDitavia/another-submodule
+	branch = main
