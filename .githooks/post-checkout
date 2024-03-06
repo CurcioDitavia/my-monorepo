@@ -1,6 +1,11 @@
 #!/bin/bash
 
+working_directory=$(pwd)
+echo $working_directory
+
 current_branch=$(git symbolic-ref --short HEAD)
+
+git submodule update --init --recursive
 
 grep -E '\[submodule "([^"]+)"\]' .gitmodules | while read -r line; do
     submodule_name=$(echo "$line" | awk -F'"' '/\[submodule/ {print $2}')
@@ -16,7 +21,7 @@ grep -E '\[submodule "([^"]+)"\]' .gitmodules | while read -r line; do
         git checkout "$current_branch"
         git pull origin "$current_branch"
 
-        cd ..
+        cd $working_directory
     else
         echo "$submodule_name does not exist. Skipping submodule update."
     fi
