@@ -1,20 +1,23 @@
 #!/bin/bash
 
-grep -E '\[submodule "([^"]+)"\]' .gitmodules | while read -r line; do
-    # submodule_name=$(echo "$line" | sed -n 's/\[submodule "\(.*\)"\]/\1/p')
+current_branch=$(git symbolic-ref --short HEAD)
 
+grep -E '\[submodule "([^"]+)"\]' .gitmodules | while read -r line; do
     submodule_name=$(echo "$line" | awk -F'"' '/\[submodule/ {print $2}')
 
-    echo "ihuu0 $line"
-    echo "ihuu $submodule_name"
+    echo "Debugging1 $line"
+    echo "Debugging2 $submodule_name"
+    echo "Debugging3 $current_branch"
 
-    # if [ -e "$submodule_name" ]; then
-    #     cd "$submodule_name"
+    if [ -e "$submodule_name" ]; then
+        cd "$submodule_name"
 
-    #     git fetch origin "$current_branch"
-    #     git checkout "$current_branch"
-    #     git pull origin "$current_branch"
+        git fetch origin "$current_branch"
+        git checkout "$current_branch"
+        git pull origin "$current_branch"
 
-    #     cd ..
-    # fi
+        cd ..
+    else
+        echo "$submodule_name does not exist. Skipping submodule update."
+    fi
 done
