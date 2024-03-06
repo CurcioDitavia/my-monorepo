@@ -1,4 +1,4 @@
 [submodule "submodule1"]
 	path = submodule1
 	url = https://github.com/CurcioDitavia/submodule1
-	branch = main
+	branch = dev
