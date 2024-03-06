@@ -1,0 +1,21 @@
+{
+  "name": "folder-to-be-deleted",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "git config core.hooksPath .githooks",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CurcioDitavia/my-monorepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CurcioDitavia/my-monorepo/issues"
+  },
+  "homepage": "https://github.com/CurcioDitavia/my-monorepo#readme"
+}
